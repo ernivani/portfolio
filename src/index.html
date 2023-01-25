@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>Mon Portfolio</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script>
+    const skills = document.querySelectorAll('#skills li');
+    $(document).ready(function() {
+      $("#skills li").click(function() {
+
+        if (document.getElementById("popup-content")) {
+          if (document.getElementById("popup-content").querySelector("h2").innerHTML == $(this).text()) {
+            document.getElementById("popup-content").remove();
+            return;
+          }
+          document.getElementById("popup-content").remove();
+        }
+        var text = $(this).text();
+        $.getJSON("/json/skills.json", function(data) {
+          var data = data[text];
+          var popup = document.createElement('div');
+          popup.id = "popup-content";
+          popup.innerHTML = `
+							<h2>${data.nom}</h2>
+							<p>${data.desc}</p>
+							<p>Niveau Actuel :</p>
+							<div class="progressbar-container">
+								<div title="niveau" class="progressbar" style=" width: ${data.level}%;">${data.level}%</div>
+							</div>
+						</div>
+      `;
+          if (data.level < 30) {
+            popup.querySelector(".progressbar").style.backgroundColor = "#ff0000";
+          }
+          else if (data.level < 50) {
+            popup.querySelector(".progressbar").style.backgroundColor = "#ff8B00";
+          }
+          else if (data.level < 100) {
+            popup.querySelector(".progressbar").style.backgroundColor = "#00E720";
+          }
+      
+      if (data.level < 15) {
+            popup.querySelector(".progressbar").style.color = "black";
+          }
+          
+          var close = document.createElement('i');
+          close.id = "popup-close";
+          close.className = "fa fa-times";
+
+
+          close.addEventListener('click', function() {
+            popup.remove();
+          });
+          popup.appendChild(close);
+          document.body.appendChild(popup);
+        });
+      });
+    });
+    
+  </script>
+</head>
+<body>
+  <header>
+    <ul id="menu" class="shadow">
+      <li>
+        <a class='smoothscroll' href="#about">A Propos De Moi</a>
+      </li>
+      <li>
+        <a href="#experience">Experience</a>
+      </li>
+      <li>
+        <a href="#education">Etudes</a>
+      </li>
+      <li>
+        <a href="#projects">Projets</a>
+      </li>
+      <li>
+        <a href="#skills">Skills</a>
+      </li>
+    </ul>
+    </div>
+  </header>
+  <div id="lead">
+    <div id="lead-content">
+      <h1>Thomas Lindeker</h1>
+      <h2>Developpeur fullStack</h2>
+      <a class="btn-rounded-white" style="cursor: pointer;" onclick='window.open("/dwnl/CV/Thomas LINDEKER H3.pdf","_blank", null); '>Télécharger CV</a>
+    </div>
+    <div id="lead-overlay"></div>
+    <a href="#skills">
+      <div id="lead-down">
+        <span>
+          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </span>
+      </div>
+    </a>
+  </div>
+  <div id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h2 class="heading">A Propos De Moi</h2>
+        </div>
+        <div class="col-md-8">
+          <p>Pellentesque vitae erat odio. Proin pharetra, lacus non faucibus consectetur, arcu tellus feugiat ligula, non egestas nisl orci ac nisl. Maecenas venenatis quam faucibus quam sollicitudin, non ultrices dui ornare. Praesent tempor, leo non interdum eleifend, eros mi dignissim dolor, eget ullamcorper arcu lectus sed metus. Aenean suscipit tellus lacus, vitae pellentesque mauris tempus vel. Sed vitae tempus felis. Sed eget leo vulputate, vehicula orci quis, pharetra nunc. In leo sem, condimentum ut gravida ut, sodales eu risus. Donec ac fermentum mi. Nam sodales tristique nisi, in laoreet lacus blandit eget. Etiam id ante vel metus scelerisque interdum eget at orci. Donec lacus sem, rhoncus nec eleifend quis, suscipit eleifend dolor. Pellentesque at malesuada erat. Nulla velit nisl, fermentum vel neque in, feugiat imperdiet tellus. Integer sed tristique lorem, eget interdum sem. Donec congue elit sed enim luctus, eget hendrerit lectus pretium. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="experience" class="background-alt">
+    <h2 class="heading">Experiences</h2>
+    <div id="experience-timeline">
+      <div>
+        <h3>Police National</h3>
+        <h4>Aleternance</h4>
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur libero. Morbi dapibus porta quam laoreet placerat. </p>
+      </div>
+      <div>
+        <h3>Comming sooon...</h3>
+      </div>
+    </div>
+  </div>
+  <div id="education">
+    <h2 class="heading">Etudes</h2>
+    <div class="education-block">
+      <h3>Citée scolaire de Marie Curie</h3>
+      <span class="education-date">Sept 2019 - Sept 2022</span>
+      <h4>Bac géneral</h4>
+      <ul>
+        <li> Option Numérique et Sciences de l'Informatique. </li>
+        <li> Option Arts Plastiques. </li>
+        <li> Option Literatures et langues etrangères. </li>
+      </ul>
+    </div>
+    <div class="education-block">
+      <h3>H3Hitema</h3>
+      <span class="education-date">Sept 2022 - Sept 2024</span>
+      <h4>BTS SIO Option SLAM</h4>
+      <p>
+        <a href="https://www.h3hitema.fr" style="font-family:Montserrat,sans-serif;text-decoration:none;font-size: large;">H3 Hitema</a>
+      </p>
+      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur libero. Morbi dapibus porta quam laoreet placerat. </p>
+    </div>
+  </div>
+  <div id="projects" class="background-alt">
+    <h2 class="heading">Projets</h2>
+    <div class="container">
+      <div class="row">
+        <div class="project shadow-large">
+          <div class="project-image">
+            <img src="./images/project.jpg" />
+          </div>
+          <div class="project-info">
+            <h3>Aucun Projet en cours</h3>
+            <p> A venir ! </p>
+            <a href="https://github.com/ernivani">GitHub pour plus d'information</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="skills">
+    <h2 class="heading">Skills</h2>
+    <ul>
+      <h3>Languages</h3>
+      <li>HTML</li>
+      <li>Python</li>
+      <li>C</li>
+      <li>C++</li>
+      <li>C#</li>
+      <li>PHP</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>LUA</li>
+      <li>SQL</li>
+      <li>Kotlin</li>
+      <li>Java</li>
+    </ul>
+    <ul>
+      <h3>FrameWork</h3>
+      <li>Node.js</li>
+      <li>Love2d</li>
+      <li>MonoGame</li>
+      <li>Symfony</li>
+    </ul>
+    <ul>
+      <h3>Logiciels</h3>
+      <li>Git</li>
+      <li>Visual Studio</li>
+      <li>Visual Studio Code</li>
+      <li>Suite JetBrain</li>
+      <li>Sublime Text</li>
+      <li>Android Studio</li>
+    </ul>
+    <ul>
+      <h3>System Exploitation</h3>
+      <li>Windows</li>
+      <li>Android</li>
+      <li>Linux</li>
+      <li>MacOS</li>
+    </ul>
+  </div>
+  <footer style="
+    padding-bottom: 0px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-2 top">
+          <a href="#">
+            <span id="to-top">
+              <i class="fa fa-chevron-up" aria-hidden="true"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+      <div class="copyright">
+        <p> Copyright &copy; <span id="current-year">2022</span> All Rights Reserved Thomas Lindeker </p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,1 @@
+Il faut tout simplement ouvrir le pikachu.bat 
