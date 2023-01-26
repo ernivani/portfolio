@@ -6,7 +6,8 @@
   <link rel="stylesheet" href="/css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script>const skills = document.querySelectorAll('#skills li');
+  <script>
+  const skills = document.querySelectorAll('#skills li');
     $(document).ready(function() {
         // Ajouter une fonction lorsque les éléments de la liste avec l'ID "skills" sont cliqués
         $("#skills li").click(function() {
@@ -26,10 +27,10 @@
             // Récupérer les données associées à l'élément de la liste cliqué à partir d'un fichier JSON externe
             $.getJSON("/json/skills.json", function(data) {
                 var data = data[text];
-                // Créer une nouvelle popup
+                // Créer un nouveau popup
                 var popup = document.createElement('div');
                 popup.id = "popup-content";
-                // Ajouter le contenu de la popup en utilisant les données récupérées
+                // Ajouter le contenu du popup en utilisant les données récupérées
                 popup.innerHTML = `
                           
                 <h2>${data.nom}</h2>
@@ -50,24 +51,30 @@
                 if (data.level < 15) {
                     popup.querySelector(".progressbar").style.color = "black";
                 }
-                // Ajouter un bouton de fermeture à la popup
+                // Ajouter un bouton de fermeture au popup
                 var close = document.createElement('i');
                 close.id = "popup-close";
                 close.className = "fa fa-times";
-                // Ajouter une fonction pour supprimer la popup lorsque le bouton de fermeture est cliqué
+                // Ajouter une fonction pour supprimer le popup lorsque le bouton de fermeture est cliqué
                 close.addEventListener('click', function() {
                     popup.remove();
+                });
+                // Ce code ajoute la possibilité de fermer le popup en appuyant sur echap.
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === "Escape") {
+                        popup.remove();
+                    }
                 });
                 popup.appendChild(close);
                 // Ajouter la popup à la page
                 document.body.appendChild(popup);
             });
         });
-        // Rendre la fenêtre de popup draggable
+        // Ajouter une fonction lorsque l'utilisateur clique sur le popup
         $(document).on("mousedown", "#popup-content", function(e) {
-            // Ajouter la classe "draggable" à l'élément
+          // Faire en sorte que l'élément "popup-content" soit déplaçable
             var $drag = $(this).addClass('draggable');
-            // Récupérer l'index z-index actuel de l'élément
+            // Récupérer les positions top et left de l'élément
             var z_idx = $drag.css('z-index'),
                 drg_h = $drag.outerHeight(),
                 drg_w = $drag.outerWidth(),
