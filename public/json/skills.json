@@ -17,37 +17,37 @@
     "Kotlin" : {
         "nom" : "Kotlin",
         "desc" : "Kotlin est un langage de programmation au double paradigme, il peut aussi bien être utilisé pour de l’orienté objet que pour de la programmation fonctionnelle.",
-        "level" : "30"
+        "level" : "50"
     },
     "C" : {
         "nom" : "C",
         "desc" : "C est un langage de programmation impératif généraliste, de bas niveau. Inventé au début des années 1970 pour réécrire Unix, C est devenu un des langages les plus utilisés, encore de nos jours.",
-        "level" : "50"
+        "level" : "60"
     },
     "C++" : {
         "nom" : "C++",
         "desc" : "Le C++ est un langage de programmation compilé permettant la programmation sous de multiples paradigmes, dont la programmation procédurale, la programmation orientée objet et la programmation générique.",
-        "level" : "60"
+        "level" : "75"
     },
     "LUA" : {
         "nom" : "LUA",
         "desc" : "Lua est un langage de script développé au Brésil au début des années 1990. Le code source d'un programme en Lua est traduit et exécuté sous forme de code byte par un interpréteur Lua. L'interpréteur lui-même est codé en C, ce qui permet aux programmes en Lua de disposer d'une performance élevée lors de l'exécution.",
-        "level" : "90"
+        "level" : "100"
     },
     "C#" : {
         "nom" : "C#",
         "desc" : "C# est un langage de programmation orientée objet, commercialisé par Microsoft depuis 2002 et destiné à développer sur la plateforme Microsoft .NET. Il est basé sur le langage C++.",
-        "level" : "45"
+        "level" : "49"
     },
     "PHP" : {
         "nom" : "PHP",
         "desc" : "PHP est un langage de programmation libre, principalement utilisé pour produire des pages Web dynamiques via un serveur HTTP, mais pouvant également fonctionner comme n'importe quel langage interprété de façon locale.",
-        "level" : "65"
+        "level" : "85"
     },
     "HTML" : {
         "nom" : "HTML",
         "desc" : "HTML est un langage de balisage conçu pour représenter les pages web. Il permet d'écrire de l'hypertexte, de mettre en forme le texte, d'insérer des images, des liens hypertextes, des formulaires, des tableaux, etc.",
-        "level" : "80"
+        "level" : "90"
     },
     "SQL" : {
         "nom" : "SQL",
@@ -57,37 +57,37 @@
     "CSS" : {
         "nom" : "CSS",
         "desc" : "CSS est un langage informatique utilisé pour mettre en forme les documents HTML. Il permet de définir la présentation des éléments HTML, comme les polices, les tailles, les couleurs, les espacements, etc.",
-        "level" : "60"
+        "level" : "75"
     },
     "Node.js" : {
         "nom" : "Node.js",
         "desc" : "Node.js est une plateforme logicielle libre en JavaScript orientée vers les applications réseau événementielles et orientée vers les services. Il est principalement utilisé pour développer des applications réseau de haute performance et des applications serveur.",
-        "level" : "40"
+        "level" : "65"
     },
     "Love2d" : {
         "nom" : "Love2d",
         "desc" : "Love2d est un framework libre et gratuit pour le développement de jeux vidéo. Il est écrit en C et C++ et utilise la bibliothèque Lua pour la programmation des jeux.",
-        "level" : "90"
+        "level" : "95"
     },
     "MonoGame" : {
         "nom" : "MonoGame",
         "desc" : "MonoGame est un framework libre et gratuit pour le développement de jeux vidéo. Il est écrit en C# et utilise la bibliothèque XNA pour la programmation des jeux.",
-        "level" : "40"
+        "level" : "60"
     },
     "Symfony" : {
         "nom" : "Symphony",
         "desc" : "Symfony est un framework libre écrit en PHP. Il est utilisé pour développer des applications web et des sites web.",
-        "level" : "20"
+        "level" : "40"
     },
     "Git" : {
         "nom" : "Git",
         "desc" : "Git est un logiciel de gestion de versions décentralisé. Il permet de gérer des fichiers et des répertoires, et de suivre l'historique des modifications effectuées sur ces fichiers.",
-        "level" : "60"
+        "level" : "65"
     },
     "Visual Studio" : {
         "nom" : "Visual Studio",
         "desc" : "Visual Studio est un logiciel de programmation développé par Microsoft. Il permet de développer des applications pour Windows, Android, iOS, Windows Phone, Windows Server, Windows IoT, Xbox, etc.",
-        "level" : "70"
+        "level" : "80"
     },
     "Visual Studio Code" : {
         "nom" : "Visual Studio Code",
@@ -107,7 +107,7 @@
     "Android Studio" : {
         "nom" : "Android Studio",
         "desc" : "Android Studio est un environnement de développement intégré (IDE) pour le développement d'applications Android. Il est développé par Google et est basé sur IntelliJ IDEA.",
-        "level" : "30"
+        "level" : "49"
     },
     "Eclipse" : {
         "nom" : "Eclipse",
@@ -117,7 +117,7 @@
     "Android" : {
         "nom" : "Android",
         "desc" : "Android est un système d'exploitation mobile développé par Google. Il permet de développer des applications pour Android.",
-        "level" : "70"
+        "level" : "85"
     },
     "Windows" : {
         "nom" : "Windows",
@@ -127,7 +127,7 @@
     "Linux" : {
         "nom" : "Linux",
         "desc" : "Linux est un système d'exploitation libre et gratuit. Il permet de développer des applications pour Linux.",
-        "level" : "60"
+        "level" : "70"
     },
     "MacOS" : {
         "nom" : "MacOS",

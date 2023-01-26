@@ -10,7 +10,6 @@
     const skills = document.querySelectorAll('#skills li');
     $(document).ready(function() {
       $("#skills li").click(function() {
-
         if (document.getElementById("popup-content")) {
           if (document.getElementById("popup-content").querySelector("h2").innerHTML == $(this).text()) {
             document.getElementById("popup-content").remove();
@@ -57,6 +56,26 @@
           popup.appendChild(close);
           document.body.appendChild(popup);
         });
+      });
+
+      $(document).on("mousedown", "#popup-content", function(e) {
+        var $drag = $(this).addClass('draggable');
+        var z_idx = $drag.css('z-index'),
+          drg_h = $drag.outerHeight(),
+          drg_w = $drag.outerWidth(),
+          pos_y = $drag.offset().top + drg_h - e.pageY,
+          pos_x = $drag.offset().left + drg_w - e.pageX;
+        $drag.css('z-index', 1000).parents().on("mousemove", function(e) {
+          $('.draggable').offset({
+            top: e.pageY + pos_y - drg_h,
+            left: e.pageX + pos_x - drg_w
+          }).on("mouseup", function() {
+            $(this).removeClass('draggable').css('z-index', z_idx);
+          });
+        });
+        e.preventDefault(); 
+      }).on("mouseup", function() {
+        $('.draggable').removeClass('draggable');
       });
     });
     
@@ -105,7 +124,11 @@
           <h2 class="heading">A Propos De Moi</h2>
         </div>
         <div class="col-md-8">
-          <p>Pellentesque vitae erat odio. Proin pharetra, lacus non faucibus consectetur, arcu tellus feugiat ligula, non egestas nisl orci ac nisl. Maecenas venenatis quam faucibus quam sollicitudin, non ultrices dui ornare. Praesent tempor, leo non interdum eleifend, eros mi dignissim dolor, eget ullamcorper arcu lectus sed metus. Aenean suscipit tellus lacus, vitae pellentesque mauris tempus vel. Sed vitae tempus felis. Sed eget leo vulputate, vehicula orci quis, pharetra nunc. In leo sem, condimentum ut gravida ut, sodales eu risus. Donec ac fermentum mi. Nam sodales tristique nisi, in laoreet lacus blandit eget. Etiam id ante vel metus scelerisque interdum eget at orci. Donec lacus sem, rhoncus nec eleifend quis, suscipit eleifend dolor. Pellentesque at malesuada erat. Nulla velit nisl, fermentum vel neque in, feugiat imperdiet tellus. Integer sed tristique lorem, eget interdum sem. Donec congue elit sed enim luctus, eget hendrerit lectus pretium. </p>
+          <p>
+
+            Bonjour, je m'appel Thomas Lindeker, j'ai 18 ans et je suis actuellement en BTS SIO option slam dans l'école H3Hitema en alternance.
+
+          </p>
         </div>
       </div>
     </div>
@@ -116,10 +139,15 @@
       <div>
         <h3>Police National</h3>
         <h4>Aleternance</h4>
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur libero. Morbi dapibus porta quam laoreet placerat. </p>
+        <p>
+        
+          Par la création de logiciels et sites internet pour les policiers, je suis en charge de la création de logiciels et sites internet pour la police nationale.
+        </p>
+        
+        </p>
       </div>
       <div>
-        <h3>Comming sooon...</h3>
+        <h3>Coming soon...</h3>
       </div>
     </div>
   </div>
@@ -142,7 +170,9 @@
       <p>
         <a href="https://www.h3hitema.fr" style="font-family:Montserrat,sans-serif;text-decoration:none;font-size: large;">H3 Hitema</a>
       </p>
-      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur libero. Morbi dapibus porta quam laoreet placerat. </p>
+      <p>
+        <a href="https://www.h3hitema.fr/formation/bts-sio-option-slam/" style="font-family:Montserrat,sans-serif;text-decoration:none;font-size: large;">BTS SIO</a>
+      </p>
     </div>
   </div>
   <div id="projects" class="background-alt">

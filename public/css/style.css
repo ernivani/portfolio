@@ -593,6 +593,7 @@ p.copyright {
 }
 
 #popup-content {
+	cursor: grab;
 	color: #fff;
 	position: fixed;
 	top: 50%;
@@ -608,6 +609,10 @@ p.copyright {
 	padding-bottom: 30px;
 	z-index: 9999;
 	border-radius: 15px;
+}
+
+#popup-content:active {
+	cursor: grabbing;
 }
 
 
